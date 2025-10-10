@@ -1,0 +1,57 @@
+# Core Dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+sqlalchemy==2.0.23
+alembic==1.12.1
+asyncpg==0.29.0
+python-multipart==0.0.6
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# ML/AI Dependencies
+scikit-learn>=1.4.0
+pandas>=2.1.0
+numpy>=1.24.0,<2.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+transformers>=4.30.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+librosa>=0.10.0
+openai-whisper>=20231117
+
+# NLP Dependencies
+nltk==3.8.1
+spacy==3.7.2
+textblob==0.17.1
+vaderSentiment==3.3.2
+
+# Computer Vision
+ultralytics==8.0.206
+mediapipe==0.10.8
+
+# Data Processing
+requests==2.31.0
+aiofiles==23.2.1
+python-magic==0.4.27
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+httpx==0.25.2
+
+# Development
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+pre-commit==3.5.0
+
+# Monitoring
+prometheus-client==0.19.0
+structlog==23.2.0
+
+# Configuration
+pyyaml==6.0.1
+python-dotenv==1.0.0

@@ -1,0 +1,97 @@
+# RCMS Configuration Settings
+
+# Application Settings
+app:
+  name: "Railway Complaint Management System"
+  version: "1.0.0"
+  debug: true
+  environment: "development"
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  prefix: "/api/v1"
+  cors_origins: ["http://localhost:3000", "http://localhost:8080"]
+
+# Database Configuration
+database:
+  url: "postgresql+asyncpg://rcms_user:rcms_pass@localhost:5432/rcms_db"
+  echo: false
+  pool_size: 10
+  max_overflow: 20
+
+# ML Model Configuration
+models:
+  category:
+    model_path: "models/category_classifier.joblib"
+    threshold: 0.7
+    classes: ["Infrastructure", "Cleanliness", "Safety", "Staff", "Food", "Security", "Other"]
+  
+  priority:
+    model_path: "models/priority_classifier.joblib"
+    threshold: 0.6
+    classes: ["Low", "Medium", "High", "Critical"]
+  
+  escalation:
+    model_path: "models/escalation_classifier.joblib"
+    threshold: 0.8
+
+# Feature Toggles
+features:
+  sentiment_analysis: true
+  computer_vision: true
+  speech_recognition: true
+  multi_language: false
+
+# Sentiment Analysis (Plug-in)
+sentiment:
+  model_type: "vader"  # Options: vader, bert, roberta
+  model_path: "models/sentiment_model.pt"
+  enabled: true
+
+# Computer Vision
+vision:
+  object_detection:
+    model_path: "models/yolo_railway.pt"
+    confidence_threshold: 0.5
+  
+  scene_classification:
+    model_path: "models/scene_classifier.pt"
+    
+  ocr:
+    engine: "tesseract"
+    languages: ["eng", "hin"]
+
+# Audio Processing
+audio:
+  whisper_model: "base"
+  language: "auto"
+  chunk_length: 30
+
+# File Upload Settings
+upload:
+  max_file_size: 50  # MB
+  allowed_extensions: [".jpg", ".jpeg", ".png", ".mp4", ".mp3", ".wav", ".txt"]
+  storage_path: "data/media"
+
+# Security
+security:
+  secret_key: "your-secret-key-here"
+  algorithm: "HS256"
+  access_token_expire_minutes: 30
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/rcms.log"
+
+# Redis (for caching)
+redis:
+  url: "redis://localhost:6379/0"
+  
+# Monitoring
+monitoring:
+  metrics_enabled: true
+  prometheus_port: 9090
