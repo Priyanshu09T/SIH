@@ -47,14 +47,6 @@ class CategoryClassifier(SklearnModel):
         Args:
             model_path: Path to saved model file
         """
-        # Use RandomForest for robust classification
-        super().__init__(
-            model_name="category_classifier",
-            model_class=Pipeline,
-            model_params={},
-            model_path=model_path
-        )
-        
         self.text_processor = TextProcessor()
         self.vectorizer = TfidfVectorizer(
             max_features=5000,
@@ -68,6 +60,23 @@ class CategoryClassifier(SklearnModel):
             n_estimators=100,
             random_state=42,
             max_depth=20,
+            min_samples_split=5,
+            min_samples_leaf=2
+        )
+        
+        # Create pipeline with steps
+        pipeline_steps = [
+            ('vectorizer', self.vectorizer),
+            ('classifier', self.classifier)
+        ]
+        
+        # Use RandomForest for robust classification
+        super().__init__(
+            model_name="category_classifier",
+            model_class=Pipeline,
+            model_params={'steps': pipeline_steps},
+            model_path=model_path
+        )
             min_samples_split=5
         )
         

@@ -108,3 +108,8 @@ class ComputerVisionError(RCMSException):
 class SentimentAnalysisError(RCMSException):
     """Raised when sentiment analysis fails."""
     pass
+
+
+class PipelineError(RCMSException):
+    """Raised when ML pipeline operations fail."""
+    pass
