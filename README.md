@@ -145,11 +145,3 @@ else:
 4. Ensure all tests pass
 5. Submit pull request
 
-## 📄 License
-MIT License - see LICENSE file for details.
-
-## 🆘 Support
-For issues and questions:
-- 📧 Email: support@rcms.railway.gov.in
-- 📞 Phone: +91-XXX-XXX-XXXX
-- 💬 Slack: #rcms-support
